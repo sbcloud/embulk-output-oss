@@ -26,7 +26,7 @@ public class OssOutputPlugin
     public interface PluginTask
             extends Task {
         @Config("endpoint")
-        @ConfigDefault("http://oss-cn-hangzhou.aliyuncs.com")
+        @ConfigDefault("\"http://oss-ap-northeast-1.aliyuncs.com\"")
         public Optional<String> getEndpoint();
 
         @Config("accessKeyId")
@@ -39,26 +39,26 @@ public class OssOutputPlugin
         public String getBucket();
 
         @Config("filePath")
-        @ConfigDefault("/")
+        @ConfigDefault("\"tmp\"")
         public Optional<String> getFilePath();
 
-        @Config("file_ext")
+        @Config("fileExt")
         String getFileNameExtension();
 
-        @Config("sequence_format")
+        @Config("sequenceFormat")
         @ConfigDefault("\".%03d.%02d\"")
         String getSequenceFormat();
 
-        @Config("tmp_path")
+        @Config("tmpPath")
         @ConfigDefault("null")
         Optional<String> getTempPath();
 
-        @Config("tmp_path_prefix")
+        @Config("tmpPathPrefix")
         @ConfigDefault("\"embulk-output-oss-\"")
         String getTempPathPrefix();
 
-        @Config("canned_acl")
-        @ConfigDefault("default")
+        @Config("cannedAcl")
+        @ConfigDefault("\"Default\"")
         Optional<CannedAccessControlList> getCannedAccessControlList();
     }
 
